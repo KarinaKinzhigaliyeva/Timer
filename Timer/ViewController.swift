@@ -7,13 +7,36 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var firstDatePicker: UIDatePicker!
+    
+    
+    @IBOutlet weak var secondDatePicker: UIDatePicker!
+    
+    
+    
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SecondVC" {
+            if let vc = segue.destination as? SecondViewController {
+                
+                vc.firstDate = firstDatePicker.date
+                vc.secondDate = secondDatePicker.date
+                
+                
+            }
+        }
+        
+    }
+    
+    
+    
 }
 
